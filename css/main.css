@@ -1,0 +1,56 @@
+body {
+  font-family: "Courier New", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+header .info-bar {
+  text-align: center;
+  background: #bbb;
+  padding: 4px 0px;
+}
+
+header .intro {
+  max-width: 860px;
+  margin: 64px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header .intro p {
+  max-width: 75%;
+}
+
+span {
+  color: grey;
+  font-weight: 600;
+}
+
+section {
+  margin: 0 32px 64px 32px;
+}
+
+/* Media Query */
+@media screen and (max-width: 600px) {
+  header span {
+    display: block;
+  }
+
+  header .intro {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

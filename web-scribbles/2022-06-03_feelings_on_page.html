@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feelings On Page</title>
+    <style>
+      * {
+        font-family: monospace;
+      }
+
+      .img {
+        width: 20%;
+      }
+
+      .message {
+        font-size: 1.9rem;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Läsår HT 2021 - VT 2022</h1>
+    <main></main>
+    <script>
+      const mainEl = document.querySelector("main");
+
+      const messages = [
+        "Nä vänta nu...",
+        "DEM FATTAR",
+        "Är det inte vaackert :D",
+        "JUST DET!?!?!",
+        "Jag vet inte om jag vill",
+        "kan tror jag skippar det",
+        "oj, det dem fattar inte",
+        "det skulle vi ha tänkt på",
+      ];
+
+      const images = [
+        "cry.png",
+        "dead_stear.png",
+        "but_why.jpeg",
+        "drake_damm_right.png",
+        "nyan_cat.jpeg",
+        "not_bad_obama.png",
+        "mao_please.png",
+        "oh_yeah.jpeg",
+        "hmm_cup.png",
+      ];
+
+      const numOfSlots = 20;
+      const positonsX = Array(numOfSlots).fill(0).map((n, i) => i/numOfSlots * 100);
+      const positonsY = Array(numOfSlots).fill(0).map((n, i) => i/numOfSlots * 100);
+
+      function renderMessage(message) {
+        const element = document.createElement("p");
+
+        element.style.position = "absolute";
+        element.className = "message";
+        element.style.top = Math.min(Math.max(Math.floor(Math.random() * 100, 90), 10)) + "%";
+        element.style.left = Math.min(Math.max(Math.floor(Math.random() * 100, 90), 10)) + "%";
+        element.innerText = message;
+        return element;
+      }
+
+      function renderImage(src) {
+        const element = document.createElement("img");
+
+        element.style.position = "absolute";
+        element.className = "img";
+        element.style.top = positonsX.splice(Math.floor(Math.random() * positonsX.length), 1) + '%';
+        element.style.left = positonsY.splice(Math.floor(Math.random() * positonsY.length), 1) + '%';
+        element.src = "../images/" + src;
+        console.log("top", element.style.top, ' left', element.style.left);
+        return element;
+      }
+
+      const messageEls = messages.map((mes) => renderMessage(mes));
+      const imageEls = images.map((img) => renderImage(img));
+      mainEl.append(...imageEls);
+      mainEl.append(...messageEls);
+    </script>
+  </body>
+</html>
