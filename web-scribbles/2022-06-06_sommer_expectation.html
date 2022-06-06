@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Min sommar 2022</title>
+  <style>
+    body {
+      background-color: #F4C3C4;
+      font-size: 3rem;
+      padding: 16px 32px;
+    }
+
+    #story {
+      font-family: sans-serif;
+      font-style: 'cursive';
+      padding: 32px 64px;
+    }
+
+    #picSection {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+   <h1>Min sommar 2022</h1>
+  <main id="story">
+  </main>
+  <section id="picSection">
+  </section>
+  <script>
+
+    // Make sure you are using the same tempus
+    // E.g present
+    const verbs = ['träffa', 'sitta', 'andas ut', 'flytta','resa', 'sova', 'vila', 'äta', 'gråta', 'skratta', 'leka', 'brottas', 'dansa'];
+    const nouns = ['bil', 'tåg', 'vänner', 'falafel', 'mat', 'glass', 'säng', 'laptop', 'kod', 'chilli', 'skog', 'hav', 'båt', 'frisbee'];
+    const adjectives = ['härlig', 'varm', 'kall', 'ensam', 'rolig', 'torr', 'minnesvärd', 'långa', 'löjlig'];
+    const places = ['på stranden', ' i sommarstugan', 'hos min mamma', 'hos min pappa', 'i Malmö', 'på hippieläger', 'överallt och ingenstans'];
+
+
+    function pick(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateStory() {
+      return `Min sommar 2022... kommer jag att ${pick(verbs)} ${pick(adjectives)} ${pick(nouns)} ${pick(places)}. Jag ser fram emot ${pick(verbs)} tillsammans med ${pick(nouns)}. Om jag har tur får jag också ${pick(verbs)} ${pick(nouns)} utan att vara ${pick(adjectives)}. Efter ett tag av ${pick(verbs)} samtidigt som utrymme för ${pick(adjectives)} ${pick(verbs)} kommer jag äntligen att ${pick(verbs)}. Man får inte glömma göra ${pick(adjectives)} ${pick(nouns)} ${pick(places)}. Wow!`
+    } 
+  
+    function generateGif() {
+      const imgEl = document.createElement('img');
+      const first = `${pick(nouns)}_${pick(places)}`.replaceAll(' ', '_');
+      imgEl.src = `https://api.memegen.link/images/buzz/${first}/${pick(adjectives)}.gif`;
+      return imgEl;
+    }
+
+    document.querySelector('#story').innerText = generateStory();
+    document.querySelector('#picSection').append(generateGif()); 
+  </script>
+</body>
+</html>
