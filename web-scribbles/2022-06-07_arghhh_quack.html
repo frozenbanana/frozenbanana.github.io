@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arghh Quack</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #6223d2;
+        height: 3000px;
+        width: 100vw;
+      }
+
+      #me {
+        z-index: 100;
+        position: relative;
+        transform: scale(0) translate(-100%, -100%);
+        opacity: 0;
+        transition: 3s all ease;
+      }
+      #me.active {
+        transform: scale(1) translate(230%, 2450px);
+        opacity: 1;
+      }
+
+      #duck {
+        z-index: 100;
+        width: 75px;
+        height: 75px;
+        position: absolute;
+        left: 82%;
+        top: 2775px;
+        opacity: 0;
+      }
+
+      #duck.active {
+        transform: scale(1);
+        transition: 0.1s all ease;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="me" src="../images/me_argh.png" alt="me" />
+    <img id="duck" src="../images/duck.png" alt="duck" />
+
+    <script>
+      setTimeout(() => {
+        const me = document.querySelector("#me");
+        me.classList.add("active");
+        setTimeout(() => {
+          const duck = document.querySelector("#duck");
+          duck.classList.add("active");
+
+          const quackSound = new Audio("../sounds/duck_sound.mp3");
+          quackSound.play();
+
+          setTimeout(() => {
+            const duck = document.querySelector("#duck");
+            for (let i = 0; i < 100; i++) {
+              let duckClone = duck.cloneNode();
+              duckClone.style.left += Math.random() * 10 + "%";
+              duckClone.style.top += Math.random() * 100 + "px";
+              document.body.append(duckClone);
+            }
+            const quackSound = new Audio("../sounds/duck_sound.mp3");
+            quackSound.play();
+          }, 3000);
+        }, 3000);
+      }, 2000);
+    </script>
+  </body>
+</html>
