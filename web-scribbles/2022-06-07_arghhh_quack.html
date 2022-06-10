@@ -8,34 +8,40 @@
       body {
         margin: 0;
         background-color: #6223d2;
-        height: 3000px;
+        height: 100vw;
         width: 100vw;
       }
 
       #me {
-        z-index: 100;
-        position: relative;
-        transform: scale(0) translate(-100%, -100%);
+        z-index: 101;
+        position: fixed;
+        top: -50%;
+        left: -50%;
         opacity: 0;
         transition: 3s all ease;
       }
       #me.active {
-        transform: scale(1) translate(230%, 2450px);
+        left: 50%;
+        top: 50%;
+        transform: scale(1) translate(-50%, -50%);
         opacity: 1;
       }
 
-      #duck {
+      .duck {
         z-index: 100;
         width: 75px;
         height: 75px;
         position: absolute;
-        left: 82%;
-        top: 2775px;
+        left: 50%;
+        top: 59%;
+        position: fixed;
+        border-radius: 16px;
+        scale: 0;
         opacity: 0;
       }
 
-      #duck.active {
-        transform: scale(1);
+      .duck.active {
+        transform: scale(1) translate(-50%, -50%);
         transition: 0.1s all ease;
         opacity: 1;
       }
@@ -43,29 +49,63 @@
   </head>
   <body>
     <img id="me" src="../images/me_argh.png" alt="me" />
-    <img id="duck" src="../images/duck.png" alt="duck" />
+    <img class="duck" src="../images/duck.png" alt="duck" />
 
     <script>
+      // https://mika-s.github.io/javascript/colors/hsl/2017/12/05/generating-random-colors-in-javascript.html
+      function generateHslaColors(saturation, lightness, amount) {
+        let colors = [];
+        let huedelta = Math.trunc(360 / amount);
+
+        for (let i = 0; i < amount; i++) {
+          let hue = i * huedelta;
+          colors.push(`hsl(${hue},${saturation}%,${lightness}%)`);
+        }
+
+        return colors;
+      }
+
+      function getRandomNotWithin(min, max, interval) {
+        let picked = interval[0] + 0.1;
+
+        while (interval[0] <= picked && picked <= interval[1]) {
+          picked = min + Math.random() * (max - min);
+        }
+
+        return picked;
+      }
+
       setTimeout(() => {
         const me = document.querySelector("#me");
         me.classList.add("active");
         setTimeout(() => {
-          const duck = document.querySelector("#duck");
+          const duck = document.querySelector(".duck");
           duck.classList.add("active");
 
           const quackSound = new Audio("../sounds/duck_sound.mp3");
           quackSound.play();
 
           setTimeout(() => {
-            const duck = document.querySelector("#duck");
-            for (let i = 0; i < 100; i++) {
+            const duck = document.querySelector(".duck");
+            const amountOfDucks = 50;
+            const clickColors =generateHslaColors(80, 50, amountOfDucks)
+            for (let i = 0; i < amountOfDucks; i++) {
               let duckClone = duck.cloneNode();
-              duckClone.style.left += Math.random() * 10 + "%";
-              duckClone.style.top += Math.random() * 100 + "px";
+              duckClone.style.zIndex = "0";
+              duckClone.style.left = getRandomNotWithin(5, 95, [45, 50]) + "%";
+              duckClone.style.top = getRandomNotWithin(5, 95, [45, 50]) + "%";
+              duckClone.style.transform = `translate(-50%, -50%) rotate(${
+                Math.random() * 360
+              }deg)`;
+
+              duckClone.addEventListener("click", (_) => {
+                const chosenColor = clickColors.splice(Math.floor(Math.random() * clickColors.length), 1)[0];
+                console.log('chosen', chosenColor);
+                duckClone.style.backgroundColor = chosenColor;
+                quackSound.play();
+              });
               document.body.append(duckClone);
             }
-            const quackSound = new Audio("../sounds/duck_sound.mp3");
-            quackSound.play();
           }, 3000);
         }, 3000);
       }, 2000);
