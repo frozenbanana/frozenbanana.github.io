@@ -21,17 +21,20 @@ header .info-bar {
 }
 
 header .intro {
-  max-width: 860px;
+  max-width: 880px;
   margin: 64px auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 header .intro p {
   max-width: 75%;
+}
+
+header .intro img {
+  margin-right: 24px;
 }
 
 span {
@@ -41,6 +44,19 @@ span {
 
 section {
   margin: 0 32px 64px 32px;
+}
+
+details {
+  font-size: larger;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+details summary:hover {
+  cursor: pointer;
+  color: purple;
 }
 
 /* Media Query */
