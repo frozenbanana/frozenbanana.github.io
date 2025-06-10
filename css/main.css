@@ -59,6 +59,10 @@ details summary:hover {
   color: purple;
 }
 
+.work-section {
+  margin-bottom: 16px;
+}
+
 /* Media Query */
 @media screen and (max-width: 600px) {
   header span {
