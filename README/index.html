@@ -1,0 +1,57 @@
+<h1>Personal Website with Blog</h1>
+<p>This site is built with <a href="https://www.11ty.io/">11ty (Eleventy)</a> - a simple static site generator.</p>
+<h2>Quick Start</h2>
+<h3>Development Server</h3>
+<pre><code class="language-bash"># From /home/henry/clawd/
+npm run dev
+</code></pre>
+<p>This starts a dev server at http://localhost:8080 with hot reload.</p>
+<h3>Build for Production</h3>
+<pre><code class="language-bash"># From /home/henry/clawd/
+npm run build
+</code></pre>
+<p>Output goes to <code>personal-site/_site/</code></p>
+<h3>Serve Built Site</h3>
+<pre><code class="language-bash">cd personal-site/_site &amp;&amp; python3 -m http.server 8000
+</code></pre>
+<p>Access at http://192.168.0.100:8000 (local network)</p>
+<h2>Adding Blog Posts</h2>
+<ol>
+<li>Create a new Markdown file in <code>personal-site/blog/</code></li>
+<li>Add front matter at the top:</li>
+</ol>
+<pre><code class="language-yaml">---
+title: Your Post Title
+date: 2025-02-08
+tags: blog
+excerpt: Short description for the blog listing
+---
+</code></pre>
+<ol start="3">
+<li>Write your content in Markdown below the front matter</li>
+<li>Build and serve: <code>npm run build</code></li>
+</ol>
+<h2>File Structure</h2>
+<pre><code>personal-site/
+├── _includes/
+│   ├── layout.njk     # Main layout template
+│   └── post.njk       # Individual blog post template
+├── _site/             # Built output (don't edit)
+├── blog/
+│   ├── automation.md  # Example blog post
+│   └── welcome.md     # Example blog post
+├── blog.njk           # Blog listing page
+└── index.njk          # Home page
+</code></pre>
+<h2>Markdown in Posts</h2>
+<p>You can use standard Markdown:</p>
+<ul>
+<li><strong>Bold</strong> and <em>italic</em></li>
+<li><a href="https://example.com">Links</a></li>
+<li><code>inline code</code></li>
+<li><code>code blocks</code></li>
+<li>Headings (##, ###)</li>
+<li>Lists</li>
+</ul>
+<h2>Styling</h2>
+<p>All CSS is inline in the layout template. To customize the look, edit <code>_includes/layout.njk</code>.</p>

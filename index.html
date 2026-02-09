@@ -1,183 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <meta charset="utf-8" />
-  <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-      />
-  <meta name="description" content="Just another personal web dev home page" />
-  <meta name="author" content="Henry Bergström" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://henrybergstrom.com/">
-  <meta property="og:title" content="Henry Bergström - Web Developer"/>
-  <meta property="og:description" content="Just another personal web dev home page"/>
-  <meta property="og:site_name" content="Henry Bergström - Web Developer"/>
-  <meta property="og:image" content="https://henrybergstrom.com/images/henry_square.jpeg"/>
-  <meta property="og:image:width" content="400"/>
-  <meta property="og:image:height" content="400"/>
-  <meta property="og:image:alt" content="Henry Bergström profile picture"/>
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="https://henrybergstrom.com/">
-  <meta name="twitter:title" content="Henry Bergström - Web Developer">
-  <meta name="twitter:description" content="Just another personal web dev home page">
-  <meta name="twitter:image" content="https://henrybergstrom.com/images/henry_square.jpeg">
-  <meta name="twitter:image:alt" content="Henry Bergström profile picture">
-
-  <title>Henry Bergström - Web Developer</title>
-
-  <link href="css/main.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry - Personal Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .tagline {
+            color: #aaa;
+            font-size: 1.2rem;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #764ba2;
+        }
+        section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        h2 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        .bio {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .skill {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .contact {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .contact a {
+            background: #667eea;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .contact a:hover {
+            transform: translateY(-2px);
+        }
+        /* Blog styles */
+        .blog-post {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+        .blog-title {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .blog-meta {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .blog-excerpt {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        .read-more {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        .blog-content {
+            color: #ccc;
+            line-height: 1.8;
+        }
+        .blog-content h3 {
+            color: #667eea;
+            margin: 1.5rem 0 0.5rem;
+        }
+        .blog-content p {
+            margin-bottom: 1rem;
+        }
+        .blog-content code {
+            background: rgba(0,0,0,0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .blog-content pre {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+    </style>
 </head>
+<body>
+    <div class="container">
+        <header>
+            <div class="avatar">👤</div>
+            <h1>Henry</h1>
+            <p class="tagline">Tech enthusiast & life organizer</p>
+        </header>
 
-  <body>
-    <header>
-      <div class="info-bar">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+        </nav>
 
-        <span>· Location: Malmö, Sweden </span>
-        <span>· Tel: +46 7655 189 11 </span>
-        <span>· Email: henrybergstrom@pm.me </span>
-      </div>
-      <div class="intro">
-        <img width="200" src="images/henry_square.jpeg" alt="This is the author">
-        <p>
-      - Henry Bergström, coding even if LLMs can do it better. Outside of servers and Web Dev, I enjoy <span>Brazilian Ju-Jitsu</span>, <span>Dancing</span> and making <span>Vegan Food Events</span>. <br>If you want to know more. Check out my micro blog. <a style="font-size: xxx-large;position: relative;top: 10px;" href="./blog">➡</a>
-        </p>
+        <main>
+            
+<section>
+    <h2>About Me</h2>
+    <p class="bio">
+        Hello! I'm Henry, someone who enjoys exploring technology and organizing life. 
+        I'm always learning new things and finding better ways to manage projects and ideas.
+    </p>
+</section>
+
+<section>
+    <h2>Latest Blog Posts</h2>
+    
+    
+    <br>
+    <a href="/blog/" class="read-more">View all posts →</a>
+    
+</section>
+
+<section>
+    <h2>Interests</h2>
+    <div class="skills">
+        <span class="skill">Technology</span>
+        <span class="skill">Automation</span>
+        <span class="skill">Organization</span>
+        <span class="skill">Learning</span>
+        <span class="skill">AI & Tools</span>
     </div>
-    </header>
-      <main>
-        <section>
-              <h2>My work life at a glance</h2>
-              <div class="work-section">
-                <div>
-                <h3>Tech Lead - MetaProvide</h3>
-                <p>
-                <a href="https://metaprovide.org">MetaProvide</a> operates in two key areas:
-                </p>
-                <ul>
-                  <li><strong>Infrastructure Services:</strong> Setting up open-source software solutions for privacy-focused organizations, primarily involving Linux server deployment using Ansible and Docker.</li>
-                  <li><strong>Product Development:</strong> Building <a href="https://hejbit.com">HejBit</a>, a decentralized storage service (decentralized alternative to Dropbox)</li>
-                </ul>
-                <p>
-                My primary responsibilities include building, hosting, and maintaining platforms using open-source technologies such as <a href="https://www.nextcloud.com/">Nextcloud</a>, <a href="https://wordpress.com/">Wordpress</a>, and <a href="https://jitsi.org/">Jitsi</a>. I leverage Python, Git, Docker, Ansible, Terraform, and Bash to implement continuous integration and deployment pipelines for platform updates.
-                For HejBit, I co-author the <a href="https://apps.nextcloud.com/apps/files_external_ethswarm">HejBit Nextcloud plugin</a> using PHP. 
-                </p>
-                </div>
-                <div>
-                  <span>April 2019 - Current</span>
-                </div>
-              </div>
+</section>
 
-              <div class="work-section">
-                <div>
-                  <h3 class="mb-0">Web Developer Teacher - Glimåkra Folkhögskola</h3>
-                  <p>
-                  <a href="https://glimnet.se">Glimåkra Folkhögskola</a> is a community collage in the north of Skane, Sweden. Year 2020 is the first year for them to launch a 2-year program for Web Development. 
-                  With three other teachers, I have the pleasure to plan and conduct the courses and lessons in order to make them attractive as Junior Web Developers.
-                </div>
-                <div>
-                  <span>July 2020 - Current</span>
-                </div>
-              </div>
+<section>
+    <h2>Get In Touch</h2>
+    <div class="contact">
+        <a href="https://t.me/frozenba">Telegram</a>
+        <a href="mailto:henry@example.com">Email</a>
+    </div>
+</section>
 
-              <div class="work-section">
-                <div>
-                  <h3>Web Developer - Knowit</h3>
-                  <p>
-                  Working with <a href="https://www.ikea.com/addon-app/completesleep/configurator/m2/latest/?locale=en_US&uiPlatform=m2#/">Ikea Bed Planner</a> to improve conversion rate and overall UX using <a href="https://reactjs.org/">React</a> with <a href="https://redux.js.org">Redux</a>. 
-                  I provided the team with valuable insights sending events from our React web app to datalake using <a hre="https://databricks.com/">Databricks</a> 
-                  and visualizing relevant data with <a href="https://spark.apache.org/docs/latest/api/python/">pyspark</a>. 
-                  Collaboration tools such as Figma, Jira and Slack were used extensively.
-                  </p>
-                </div>
-                <div>
-                  <span>June 2021 - February 2022</span>
-                </div>
-              </div>
+        </main>
 
-              <div class="work-section">
-                <div>
-                  <h3>Programming and Swedish Teacher</h3>
-                  <div>
-                    Merit Utbildning
-                  </div>
-                    <p>
-                  Planned and guided a class of 30 newcomers with engineering 
-                  background to be retrained as Software Developers in Sweden. My main responsibilty was to teach Swedish 
-                  in context of working in the IT field.
-                    </p>
-                </div>
-                <div>
-                  <span>May 2019 - August 2019</span>
-                </div>
-              </div>
-        </section>
-
-        <section
-           >
-            <div>
-              <h2>Education</h2>
-
-              <div>
-                <div>
-                  <h3>Bleking Institue of Technology</h3>
-                  <div>
-                    Master of Science: Computer Science - Game and Software
-                    Engineering
-                  </div>
-                </div>
-                  <div>
-                    <span>August 2015 - 2021 (Unfinished thesis)</span>
-                  </div>
-              </div>
-
-                <div>
-                  <div>
-                    <h3>EC Utbildning</h3>
-                    <div>Developer of Embedded Systems</div>
-                  </div>
-                  <div>
-                    <span>August 2014 - June 2015</span>
-                  </div>
-                </div>
-
-              <div>
-                <div>
-                  <h3>Polhem High School</h3>
-                  <div>Science Program</div>
-                </div>
-                  <div>
-                    <span>August 2008 - June 2011</span>
-                  </div>
-              </div>
-            </div>
-        </section>
-
-        <section>
-            <div>
-              <h2>Interests</h2>
-              <p>
-          Apart from being a techie, I enjoy my time creating events ranging from Thai cooking evenings to hackathons. Most week nights I am an rolling on mats
-          practicing <a href="https://en.wikipedia.org/wiki/Brazilian_jiu-jitsu">Brazilian Ju-Jitsu</a> and when the weather allows it hiking with friends.
-              </p>
-              <p>When the weather does not allow it, I tend to explore a new text editing software or work my current project. I also like the idea of yoga and meditation but I rarely do it.
-            </div>
-        </section>
-
-        <section>
-            <div>
-              <h2>Web Scribbles</h2>
-              <ul>
-                
-                <li><a href="web-scribbles/2022-06-07_arghhh_quack.html">2022-06-07_arghhh_quack</a></li>
-                <li><a href="web-scribbles/2022-06-06_summer_expectation.html">2022-06-06_Summer_expectation</a></li>
-                <li><a href="web-scribbles/2022-06-03_feelings_on_page.html">2022-06-03_Feelings_on_page</a></li>
-              </ul>
-        </section>
-
-      <main>
-  </body>
+        <footer>
+            <p>© 2025 Henry — Built with ❤️</p>
+        </footer>
+    </div>
+</body>
 </html>
